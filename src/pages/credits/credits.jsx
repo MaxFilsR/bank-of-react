@@ -1,4 +1,4 @@
-const CreditsPage = ({ balance }) => {
+const CreditsPage = ({ balance, addCredit }) => {
   return (
     <div className="dashboard-page-content-container">
       <main className="dashboard-page-content">

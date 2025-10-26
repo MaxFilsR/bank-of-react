@@ -1,6 +1,5 @@
-import React from "react";
 import { Link } from "react-router";
-import reactLogo from "../assets/react.svg";
+import reactLogo from "../../assets/react.svg";
 import "./Sidebar.css";
 
 const Sidebar = () => {
