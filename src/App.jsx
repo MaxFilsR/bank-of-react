@@ -31,15 +31,22 @@ function App() {
     setBalance((prev) => prev + amount);
   };
 
-  const addDebit = (amount) => {
+  const addDebit = (debitAdd) => {
+    const amount=debitAdd.amount;
     if (typeof amount !== "number" || amount <= 0) return;
 
     if (amount > balance) {
       showError("Debit amount exceeds available balance!");
       return;
     }
+    const CurrentDate= new Date().toISOString().split('T')[0];
+    const newDebitObject={
+      ...debitAdd,
+      date:CurrentDate,
+    };
 
-    setDebits((prev) => [...prev, amount]);
+
+    setDebits((prev) => [...prev, newDebitObject]);
     setBalance((prev) => prev - amount);
   };
 
@@ -61,7 +68,7 @@ function App() {
           />
           <Route
             path="/debits"
-            element={<DebitsPage balance={balance} addDebit={addDebit} />}
+            element={<DebitsPage balance={balance} addDebit={addDebit} debits={debits} />}
           />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
