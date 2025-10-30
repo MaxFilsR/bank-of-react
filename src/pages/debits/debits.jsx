@@ -55,7 +55,7 @@ const DebitsPage = ({ balance, addDebit, debits }) => {
           <h3> Debit History</h3>
           {debits.map((debit,index)=>(
             <div key={index} style={{border: '1px solid #ccc', margin: '10px', padding:'10px'}}>
-              <p><strong>Description:</strong>{debit.descreption}</p>
+              <p><strong>Description:</strong>{debit.description}</p>
               <p><strong> Amount:</strong>${debit.amount.toLocaleString("en-US")}</p>
               <p><strong> Date:</strong>{debit.date}</p>
             </div>
