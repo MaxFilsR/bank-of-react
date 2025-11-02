@@ -24,11 +24,17 @@ function App() {
   };
 
   // Only handle numbers now
-  const addCredit = (amount) => {
-    if (typeof amount !== "number" || amount <= 0) return;
+  const addCredit = (creditData) => {
+    if (typeof creditData.amount !== "number" || creditData.amount <= 0) return;
 
-    setCredits((prev) => [...prev, amount]);
-    setBalance((prev) => prev + amount);
+    const currentDate = new Date().toISOString().split('T')[0];
+    const newCreditObject = {
+      ...creditData,
+      date: currentDate
+    };
+
+    setCredits((prev) => [...prev, newCreditObject]);
+    setBalance((prev) => prev + creditData.amount);
   };
 
   const addDebit = (debitAdd) => {
@@ -64,7 +70,7 @@ function App() {
           />
           <Route
             path="/credits"
-            element={<CreditsPage balance={balance} addCredit={addCredit} />}
+            element={<CreditsPage balance={balance} addCredit={addCredit} credits={credits} />}
           />
           <Route
             path="/debits"
