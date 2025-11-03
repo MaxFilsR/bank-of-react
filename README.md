@@ -10,4 +10,4 @@ The goal is to create a SPA using react that uses key react concepts like routin
 - **An Van**  
   GitHub: [realpyop An Van]([https://github.com/realpyop)  
 ## Github Pages
-- [Grid Maker]( https://maxfilsr.github.io/CSCI39548-asslignment-2/)
+- [Bank of React]( https://maxfilsr.github.io/bank-of-react/)
