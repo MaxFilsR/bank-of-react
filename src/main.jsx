@@ -3,6 +3,7 @@ import { createRoot } from "react-dom/client";
 import "./index.css";
 import App from "./App.jsx";
 import { BrowserRouter, useNavigate } from "react-router";
+const basename = import.meta.env.MODE === "production" ? "/bank-of-react" : "/";
 
 function RedirectHandler({ children }) {
   const navigate = useNavigate();
@@ -12,7 +13,7 @@ function RedirectHandler({ children }) {
     if (redirectPath) {
       sessionStorage.removeItem("redirectPath");
       // Remove the basename from the stored path before navigating
-      navigate(redirectPath.replace("/bank-of-react", ""));
+      navigate(redirectPath.replace(basename, ""));
     }
   }, [navigate]);
 
@@ -21,7 +22,7 @@ function RedirectHandler({ children }) {
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <BrowserRouter basename="/bank-of-react">
+    <BrowserRouter basename={basename}>
       <RedirectHandler>
         <App />
       </RedirectHandler>
